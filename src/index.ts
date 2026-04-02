@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv-safe";
 import cors from "cors";
+import authRoutes from "./ports/rest/routes/auth";
+import adminRoutes from "./ports/rest/routes/admin";
 import dependencies from "./infrastructure/dependencies";
 
 const app = express();
@@ -16,6 +18,9 @@ mongoDbClient.ConnectToDb();
 app.use("/healthcheck", (_req, res) => {
   res.status(200).json({ message: "Successful" });
 });
+
+app.use("/auth", authRoutes);
+app.use("/admin", adminRoutes);
 
 const desiredPort = Number(process.env.PORT ?? 8000);
 const server = app.listen(desiredPort, () => {
