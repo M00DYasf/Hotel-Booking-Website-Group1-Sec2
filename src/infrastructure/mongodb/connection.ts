@@ -1,13 +1,13 @@
-import { connect } from "mongoose";
+import { connect as connection } from 'mongoose';
 import { config } from "../../config/config";
 
-const connectDB = async () => {
-  try {
-    await connect(config.mongo.url);
-    console.log("Connected to MongoDB successfully");
-  } catch (error) {
-    console.error("MongoDB connection error:", error);
-  }
-};
+const mongoDb = config.mongo.url;
 
-export default connectDB;
+export const ConnectToDb = async () => {
+  try {
+    await connection(mongoDb);
+    console.log('Connected to database successfully');
+  } catch (err) {
+    console.log('Disconnect');
+  }
+}
