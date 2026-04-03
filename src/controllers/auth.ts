@@ -8,6 +8,10 @@ export const register = (dependencies: any) => async (userData: any) => {
   if (!userData.name || !userData.email || !userData.password) {
     throw new Error("Name, email and password are required");
   }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(userData.email)) {
+    throw new Error("Invalid email format");
+  }
   if (userData.password.length < 6) {
     throw new Error("Password must be at least 6 characters");
   }
