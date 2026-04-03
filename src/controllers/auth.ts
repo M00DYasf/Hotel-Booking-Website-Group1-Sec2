@@ -17,4 +17,13 @@ export const register = (dependencies: any) => async (userData: any) => {
   }
   const result = await userQueries.registerUser(userData);
   return result;
+
+};
+
+export const login = (dependencies: any) => async (credentials: any) => {
+  const { email, password } = credentials;
+
+  if (!email || !password) {
+    throw new Error("Email and password are required");
+  }
 };
