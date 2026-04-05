@@ -1,5 +1,7 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import userQueries from "../infrastructure/mongodb/queries/user";
+import { config } from "../config/config";
 
 export const register = (dependencies: any) => async (userData: any) => {
   const existingUser = await userQueries.findUserByEmail(userData.email);
@@ -36,4 +38,15 @@ export const login = (dependencies: any) => async (credentials: any) => {
   if (!isMatch) {
     throw new Error("Invalid email or password");
   }
+
+const token = jwt.sign(
+    { id: user._id, role: user.role },
+    String(config.jwt.secret),
+    { expiresIn: "7d" }
+  );
+
+  return {
+    token,
+    user: { id: user._id, name: user.name, email: user.email, role: user.role }
+  };
 };

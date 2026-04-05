@@ -23,9 +23,11 @@ router.post("/register", async (req: Request, res: Response, next: NextFunction)
 router.post("/login", async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { email, password } = req.body;
-    await login(dependencies)({ email, password });
+    const result = await login(dependencies)({ email, password });
     res.status(200).json({
-      message: "Login successful"
+      message: "Login successful",
+      token: result.token,
+      user: result.user
     });
   } catch (error) {
     console.log(`Error in login: ${JSON.stringify((error as Error).message)}`);
