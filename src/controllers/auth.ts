@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import userQueries from "../infrastructure/mongodb/queries/user";
 
 export const register = (dependencies: any) => async (userData: any) => {
@@ -17,7 +18,6 @@ export const register = (dependencies: any) => async (userData: any) => {
   }
   const result = await userQueries.registerUser(userData);
   return result;
-
 };
 
 export const login = (dependencies: any) => async (credentials: any) => {
@@ -25,5 +25,15 @@ export const login = (dependencies: any) => async (credentials: any) => {
 
   if (!email || !password) {
     throw new Error("Email and password are required");
+  }
+
+  const user = await userQueries.findUserByEmail(email);
+  if (!user) {
+    throw new Error("Invalid email or password");
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+    throw new Error("Invalid email or password");
   }
 };
