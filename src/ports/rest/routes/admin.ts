@@ -12,4 +12,5 @@ router.get("/bookings", authenticateToken, adminOnly, async (req: Request, res: 
   }
 });
 
+
 export = router;
