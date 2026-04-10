@@ -18,3 +18,6 @@ export const editBooking = (dependencies: any) => async (id: string, data: any) 
   if (!booking) throw new Error("Booking not found");
   return bookingQueries.updateBooking(id, data);
 };
+export const getAllBookings = (dependencies: any) => async () => {
+  return bookingQueries.findAllBookings();
+};
