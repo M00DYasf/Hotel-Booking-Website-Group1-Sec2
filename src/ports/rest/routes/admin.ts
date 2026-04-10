@@ -1,13 +1,14 @@
 import express, { NextFunction, Response, Request } from "express";
 import { authenticateToken, adminOnly } from "../../../middleware/auth";
 import dependencies from "../../../infrastructure/dependencies";
-import { acceptBooking, declineBooking, editBooking } from "../../../controllers/booking";
+import { acceptBooking, declineBooking, editBooking, getAllBookings } from "../../../controllers/booking";
 
 const router = express.Router();
 
 router.get("/bookings", authenticateToken, adminOnly, async (req: Request, res: Response, next: NextFunction) => {
   try {
-    res.status(200).json({ message: "Protected admin route working" });
+    const bookings = await getAllBookings(dependencies)();
+    res.status(200).json({ bookings });
   } catch (error) {
     console.log(`Error: ${JSON.stringify((error as Error).message)}`);
     res.status(500).json({ message: `${(error as Error).message}` });
