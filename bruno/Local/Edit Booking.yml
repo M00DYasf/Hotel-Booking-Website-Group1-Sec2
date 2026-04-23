@@ -1,0 +1,22 @@
+info:
+  name: Edit Booking
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/bookings/edit/123"
+  body:
+    type: json
+    data: |-
+      {
+        "checkIn": "2026-05-01",
+        "checkOut": "2026-05-10"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
