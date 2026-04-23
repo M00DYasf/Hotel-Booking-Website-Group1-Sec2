@@ -1,6 +1,6 @@
-import { Booking } from "../../domain/entities/Booking";
-import { BookingRepository } from "../../domain/repo/BookingRepository";
-import { ActivityLogger } from "./ActivityLogger";
+import { Booking } from "../domain/entities/Booking";
+import { BookingRepository } from "../domain/repo/BookingRepository";
+import { ActivityLogger } from "../domain/entities/ActivityLogger";
 
 export class BookingEngine {
   constructor(
@@ -17,6 +17,7 @@ export class BookingEngine {
     resourceId: string;
     startTime: Date;
     endTime: Date;
+
     createdAt: Date;
   }) {
     const existingBookings = await this.bookingRepo.findByTime(

@@ -7,6 +7,7 @@ export class Booking {
     public resourceId: string, // what we are booking
     public startTime: Date,
     public endTime: Date,
-    public status: BookingStatus = "PENDING"
+    public status: BookingStatus = "PENDING",
+    public createdAt: Date = new Date()
   ) {}
 }

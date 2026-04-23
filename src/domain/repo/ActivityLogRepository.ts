@@ -1,4 +1,4 @@
-import { ActivityLog, LogFilterOptions, PaginatedLogs } from "../entities/ActivityLog";
+import { ActivityLog, LogFilterOptions, PaginatedLogs } from "../entities/ActivityLogger";
 
 export class ActivityLogRepository implements ActivityLogRepository {
 
