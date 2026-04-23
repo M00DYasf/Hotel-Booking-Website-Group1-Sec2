@@ -58,7 +58,7 @@ export class BookingEngine {
       data.startTime,
       data.endTime,
       "PENDING",
-      Date.now
+      data.createdAt
     );
 
     await this.bookingRepo.create(booking);
