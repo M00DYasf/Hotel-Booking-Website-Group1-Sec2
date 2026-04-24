@@ -1,7 +1,7 @@
 import express, { NextFunction, Response, Request } from "express";
 import { authenticateToken, adminOnly } from "../../../middleware/auth";
 import dependencies from "../../../infrastructure/dependencies";
-import { acceptBooking, declineBooking, editBooking, getAllBookings } from "../../../controllers/booking";
+import { acceptBooking, declineBooking, editBooking, getAllBookings, createBooking } from "../../../controllers/booking";
 
 const router = express.Router();
 
@@ -41,6 +41,15 @@ router.put("/bookings/:id/edit", authenticateToken, adminOnly, async (req: Reque
     res.status(200).json({ message: "Booking updated", booking });
   } catch (error) {
     console.log(`Error: ${JSON.stringify((error as Error).message)}`);
+    res.status(400).json({ message: `${(error as Error).message}` });
+  }
+});
+
+router.post("/bookings", authenticateToken, adminOnly, async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const booking = await createBooking(dependencies)(req.body);
+    res.status(201).json({ message: "Booking created", booking });
+  } catch (error) {
     res.status(400).json({ message: `${(error as Error).message}` });
   }
 });
