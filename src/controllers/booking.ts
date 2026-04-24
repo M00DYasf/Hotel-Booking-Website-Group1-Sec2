@@ -21,3 +21,7 @@ export const editBooking = (dependencies: any) => async (id: string, data: any) 
 export const getAllBookings = (dependencies: any) => async () => {
   return bookingQueries.findAllBookings();
 };
+
+export const createBooking = (dependencies: any) => async (data: any) => {
+  return bookingQueries.createBooking(data);
+};
