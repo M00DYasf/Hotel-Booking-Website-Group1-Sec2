@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { GetLogsUseCase } from '../../application/GetLogsUseCase';
-import { LogCategory, LogLevel } from '../../domain/entities/ActivityLog';
+import { GetLogsUseCase } from '../application/GetLogsUseCase';
+import { LogCategory, LogLevel } from '../domain/entities/ActivityLog';
 
 export class LogController {
   constructor(private readonly getLogsUC: GetLogsUseCase) {}

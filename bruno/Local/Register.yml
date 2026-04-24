@@ -5,14 +5,15 @@ info:
 
 http:
   method: POST
-  url: "{{baseUrl}}/api/auth/register"
+  url: "{{baseUrl}}/auth/register"
   body:
     type: json
     data: |-
       {
-        "name": "Bolaji Test",
-        "email": "bolaji@test.com",
-        "password": "password123"
+        "name": "Test User",
+        "email": "test@test.com",
+        "password": "password123",
+        "role": "admin"
       }
   auth: inherit
 

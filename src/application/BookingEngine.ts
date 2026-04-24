@@ -1,11 +1,11 @@
 import { Booking } from "../domain/entities/Booking";
 import { BookingRepository } from "../domain/repo/BookingRepository";
-import { ActivityLogger } from "../domain/entities/ActivityLogger";
+import { ActivityLog } from "../domain/entities/ActivityLog";
 
 export class BookingEngine {
   constructor(
     private bookingRepo: BookingRepository,
-    private activityLogger: ActivityLogger
+    private activityLogger: ActivityLog
   ) {}
 
   private isOverlapping(aStart: Date, aEnd: Date, bStart: Date, bEnd: Date) {

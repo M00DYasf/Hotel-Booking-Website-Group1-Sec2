@@ -1,6 +1,6 @@
-import { ActivityLog, LogFilterOptions, PaginatedLogs } from "../entities/ActivityLogger";
+import { ActivityLog, LogFilterOptions, PaginatedLogs } from "../entities/ActivityLog";
 
-export interface ActivityLogRepository {
+export interface IActivityLogRepository {
   create(log: ActivityLog): Promise<void>;
 
   findAll(): Promise<ActivityLog[]>;

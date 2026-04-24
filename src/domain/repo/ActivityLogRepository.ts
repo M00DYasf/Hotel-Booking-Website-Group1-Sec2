@@ -1,4 +1,6 @@
-import { ActivityLog, LogFilterOptions, PaginatedLogs } from "../entities/ActivityLogger";
+import { ActivityLog, LogFilterOptions, PaginatedLogs } from "../entities/ActivityLog";
+import { ActivityLogModel } from '../../infrastructure/mongodb/models/activityLog';
+
 
 export class ActivityLogRepository implements ActivityLogRepository {
 

@@ -1,6 +1,5 @@
-import { IActivityLogRepository } from '../../domain/repositories/IActivityLogRepository';
-import { LogFilterOptions, PaginatedLogs } from '"../entities/ActivityLog"';
-
+import { IActivityLogRepository } from '../domain/repo/IActivityLogRepository';
+import { LogFilterOptions, PaginatedLogs } from '../domain/entities/ActivityLog';
 export class GetLogsUseCase {
   constructor(private readonly logRepo: IActivityLogRepository) {}
 

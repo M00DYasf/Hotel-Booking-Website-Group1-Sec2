@@ -1,11 +1,11 @@
 info:
-  name: Accept Booking
+  name: Get All Bookings
   type: http
-  seq: 4
+  seq: 8
 
 http:
-  method: PUT
-  url: "{{baseUrl}}/admin/bookings/69eac2eaf758472adaaf6692/accept"
+  method: GET
+  url: "{{baseUrl}}/admin/bookings"
   auth:
     type: bearer
     token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWFiZTM5MzYxYTMyOWE5MTc0ZDc1OCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3Njk5MTgzMiwiZXhwIjoxNzc3NTk2NjMyfQ.i6N-fsRABOKDfWXYRu05mL4-5VMdIakwTa2ZD4m3i7E

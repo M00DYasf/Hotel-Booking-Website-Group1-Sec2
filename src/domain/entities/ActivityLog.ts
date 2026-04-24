@@ -1,7 +1,7 @@
 export type LogLevel = "info" | "warn" | "error" | "debug";
 export type LogCategory = "booking" | "auth" | "user" | "system" | "http" | "Booking";
 
-export class ActivityLogger {
+export class ActivityLog {
   constructor(
     public id: string,
     public action: string,
@@ -37,7 +37,7 @@ export interface LogFilterOptions {
 }
 
 export interface PaginatedLogs {
-  logs: ActivityLogger[];
+  logs: ActivityLog[];
   total: number;
   page: number;
   limit: number;

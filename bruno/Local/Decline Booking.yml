@@ -5,8 +5,10 @@ info:
 
 http:
   method: PUT
-  url: "{{baseUrl}}/api/bookings/decline/123"
-  auth: inherit
+  url: "{{baseUrl}}/admin/bookings/69eac46df758472adaaf66ee/decline"
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWFiZTM5MzYxYTMyOWE5MTc0ZDc1OCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3Njk5MTgzMiwiZXhwIjoxNzc3NTk2NjMyfQ.i6N-fsRABOKDfWXYRu05mL4-5VMdIakwTa2ZD4m3i7E
 
 settings:
   encodeUrl: true
