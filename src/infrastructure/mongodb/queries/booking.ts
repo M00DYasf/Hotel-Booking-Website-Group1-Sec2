@@ -16,4 +16,8 @@ const findAllBookings = async () => {
   return Booking.find();
 };
 
-export default { findBookingById, updateBookingStatus, updateBooking, findAllBookings };
+const createBooking = async (data: any) => {
+  return Booking.create(data);
+};
+
+export default { findBookingById, updateBookingStatus, updateBooking, findAllBookings, createBooking };
